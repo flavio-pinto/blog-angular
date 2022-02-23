@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Post } from 'src/app/models/post';
-import { getPost } from 'src/app/posts.service';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-detail-post',
@@ -26,12 +26,12 @@ export class DetailPostComponent implements OnInit {
   post!: Post | undefined;
   sub!: Subscription;
 
-  constructor(private activateRoute: ActivatedRoute) { }
+  constructor(private activateRoute: ActivatedRoute, private postsSrv: PostsService) { }
 
   ngOnInit(): void {
     this.sub = this.activateRoute.params.subscribe((params: Params) => { //facendo così ci permette di recuperare i dati in tempo reale ogni volta che cambia la rotta
       const id = +params['id']; //il + trasforma la stringa in numero
-      this.post = getPost(id);
+      this.post = this.postsSrv.getPost(id);
     })
   }
 

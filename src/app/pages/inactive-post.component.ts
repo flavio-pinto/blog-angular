@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post';
-import { getPosts, updatePost } from 'src/app/posts.service';
+import { PostsService } from '../posts.service';
 
 @Component({
   template: `
@@ -17,15 +17,15 @@ import { getPosts, updatePost } from 'src/app/posts.service';
 export class InactivePostComponent implements OnInit {
   posts!: Post[];
 
-  constructor() {}
+  constructor(private postsSrv: PostsService) {}
 
   ngOnInit(): void {
-    const posts = getPosts();
+    const posts = this.postsSrv.getPosts();
     this.posts = posts;
   }
 
   onActivePosts(id: number, i: number): void {
-    updatePost({ active: true }, id);
+    this.postsSrv.updatePost({ active: true }, id);
     this.posts.splice(i, 1);
   }
 }
