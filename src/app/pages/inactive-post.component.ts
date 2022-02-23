@@ -1,13 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { post } from 'src/app/models/post';
+import { Post } from 'src/app/models/post';
 import { getPosts, updatePost } from 'src/app/posts.service';
 
 @Component({
-  templateUrl: './inactive-post.component.html',
-  styleUrls: ['./inactive-post.component.scss']
+  template: `
+    <div class="container mt-5">
+      <div *ngFor="let post of posts; let i = index">
+        <app-post-card *ngIf="!post.active" [post]="post">
+          <button (click)="onActivePosts(post.id, i)" class="btn btn-primary">Attiva</button>
+        </app-post-card>
+      </div>
+    </div>
+  `,
+  styles: []
 })
 export class InactivePostComponent implements OnInit {
-  posts!: post[];
+  posts!: Post[];
 
   constructor() {}
 

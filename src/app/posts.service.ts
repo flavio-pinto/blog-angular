@@ -1,6 +1,6 @@
-import { post } from './models/post';
+import { Post } from './models/post';
 
-let posts: post[] = [
+let posts: Post[] = [
   {
     id: 1,
     title: 'primo post',
@@ -46,7 +46,7 @@ export function getPost(idPost: number) {
   return posts.find((post) => post.id === idPost)
 }
 
-export function updatePost(data: Partial<post>, id: number) {
+export function updatePost(data: Partial<Post>, id: number) {
   posts = posts.map((post) => (post.id == id ? { ...post, ...data } : post));
-  return posts.find((post) => post.id == id) as post;
+  return posts.find((post) => post.id == id) as Post;
 }

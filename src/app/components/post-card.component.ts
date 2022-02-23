@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { post } from '../models/post';
+import { Post } from '../models/post';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,7 +23,7 @@ import { Router } from '@angular/router';
   styles: []
 })
 export class PostCardComponent implements OnInit {
-  @Input() post!: post;
+  @Input() post!: Post;
   @Input() bgColor!: string;
 
   constructor(private router: Router) { }

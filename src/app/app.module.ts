@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ActivePostComponent } from './pages/active-post/active-post.component';
-import { InactivePostComponent } from './pages/inactive-post/inactive-post.component';
+import { HomeComponent } from './pages/home.component';
+import { ActivePostComponent } from './pages/active-post.component';
+import { InactivePostComponent } from './pages/inactive-post.component';
 import { Route, RouterModule } from '@angular/router';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { PostCardComponent } from './post-card/post-card.component';
-import { DetailPostComponent } from './pages/detail-post/detail-post.component';
+import { NavBarComponent } from './components/nav-bar.component';
+import { PostCardComponent } from './components/post-card.component';
+import { DetailPostComponent } from './pages/detail-post.component';
 
 const routes: Route[] =[
   {

@@ -2,8 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  template: `
+    <div class="container mt-5 d-flex justify-content-around">
+      <button (click)="goToActivePosts()" class="btn btn-primary">Vai ai post attivi</button>
+      <button (click)="goToInactivePosts()" class="btn btn-danger">Vai ai post inattivi</button>
+    </div>
+  `,
+  styles: []
 })
 export class HomeComponent implements OnInit {
 

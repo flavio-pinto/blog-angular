@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { post } from 'src/app/models/post';
+import { Post } from 'src/app/models/post';
 import { getPost } from 'src/app/posts.service';
 
 @Component({
@@ -23,7 +23,7 @@ import { getPost } from 'src/app/posts.service';
   styles: []
 })
 export class DetailPostComponent implements OnInit {
-  post!: post | undefined;
+  post!: Post | undefined;
   sub!: Subscription;
 
   constructor(private activateRoute: ActivatedRoute) { }
