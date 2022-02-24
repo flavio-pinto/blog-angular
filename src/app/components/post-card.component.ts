@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
       <h5 class="card-title">{{post.title}}</h5>
       <p class="card-text">{{post.body}}</p>
       <ng-content></ng-content>
-      <button type="button" class="btn btn-primary" (click)="goToActivePosts()">Dettagli</button>
+      <button type="button" class="btn btn-primary" (click)="goToDetailPost()">Dettagli</button>
     </div>
 
   </div>`,
@@ -31,7 +31,7 @@ export class PostCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToActivePosts() {
+  goToDetailPost() {
     this.router.navigate(['detail-post/' + this.post.id]);
   }
 
