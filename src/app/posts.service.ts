@@ -91,5 +91,3 @@ export class PostsService {
     return this.posts.find((post) => post.id == id) as Post;
   }
 }
-
-
